@@ -1,0 +1,54 @@
+mixin Terlacak {
+  final List<String> _riwayat = [];
+
+  List<String> get riwayat => List.unmodifiable(_riwayat);
+
+  void catatPosisi(String lokasi) {
+    final waktu = DateTime.now().toIso8601String().substring(11, 16);
+    _riwayat.add('[$waktu] $lokasi');
+  }
+
+  String posisiTerakhir() =>
+      _riwayat.isEmpty ? 'Belum ada data posisi' : _riwayat.last;
+}
+
+mixin Terasuransi {
+  /// Persentase premi asuransi (default 1.5%).
+  double persentasePremi = 1.5;
+
+  /// Menghitung premi asuransi berdasarkan nilai barang.
+  double hitungPremi(double nilaiBarang) {
+    return nilaiBarang * persentasePremi / 100;
+  }
+
+  /// Ringkasan informasi asuransi.
+  String infoAsuransi(double nilaiBarang) {
+    final premi = hitungPremi(nilaiBarang).toStringAsFixed(0);
+    return 'Premi $persentasePremi% dari Rp${nilaiBarang.toStringAsFixed(0)} = Rp$premi';
+  }
+}
+
+abstract class LayananPengiriman {
+  final String kodeLayanan;
+  final double jarakKm;
+  final double beratKg;
+
+  LayananPengiriman({
+    required this.kodeLayanan,
+    required this.jarakKm,
+    required this.beratKg,
+  });
+
+  /// Wajib diisi oleh setiap moda pengiriman.
+  double hitungTarif();
+
+  /// Wajib diisi oleh setiap moda pengiriman.
+  int estimasiHari();
+
+  /// Implementasi umum yang diwarisi seluruh turunan.
+  String ringkasan() {
+    final tarif = hitungTarif().toStringAsFixed(0);
+    return '$kodeLayanan | ${jarakKm.toStringAsFixed(0)} km | '
+        '${beratKg.toStringAsFixed(1)} kg | Rp$tarif | ${estimasiHari()} hari';
+  }
+}

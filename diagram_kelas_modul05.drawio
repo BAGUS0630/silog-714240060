@@ -1,0 +1,161 @@
+<mxfile host="app.diagrams.net" agent="Antigravity">
+  <diagram id="modul05-class-diagram" name="Diagram Kelas Modul 05">
+    <mxGraphModel dx="1235" dy="1635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Judul Diagram -->
+        <mxCell id="title" parent="1" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1565C0;" value="Diagram Kelas — Modul 05&#xa;Pemrograman Berorientasi Objek Lanjut&#xa;Sistem Informasi Logistik (SiLog)&#xa;714240060 Muhammad Bagus" vertex="1">
+          <mxGeometry height="70" width="500" x="335" y="20" as="geometry" />
+        </mxCell>
+
+        <!-- Kelas Abstrak LayananPengiriman -->
+        <mxCell id="layanan" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=14;fillColor=#1565C0;fontColor=#FFFFFF;strokeColor=#0D47A1;rounded=1;arcSize=8;shadow=1;" value="&lt;&lt;abstract&gt;&gt;&#xa;LayananPengiriman" vertex="1">
+          <mxGeometry height="260" width="320" x="425" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="layanan-attr" parent="layanan" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ final String kodeLayanan&#xa;+ final double jarakKm&#xa;+ final double beratKg" vertex="1">
+          <mxGeometry height="70" width="320" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="layanan-sep" parent="layanan" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#0D47A1;" value="" vertex="1">
+          <mxGeometry height="8" width="320" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="layanan-method" parent="layanan" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ LayananPengiriman({required ...})&#xa;+ {abstract} hitungTarif() : double&#xa;+ {abstract} estimasiHari() : int&#xa;+ ringkasan() : String" vertex="1">
+          <mxGeometry height="140" width="320" y="108" as="geometry" />
+        </mxCell>
+
+        <!-- Mixin Terlacak -->
+        <mxCell id="terlacak" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=14;fillColor=#2E7D32;fontColor=#FFFFFF;strokeColor=#1B5E20;rounded=1;arcSize=8;shadow=1;" value="&lt;&lt;mixin&gt;&gt;&#xa;Terlacak" vertex="1">
+          <mxGeometry height="230" width="280" x="50" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="terlacak-attr" parent="terlacak" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="- final List&lt;String&gt; _riwayat&#xa;+ get riwayat : List&lt;String&gt;" vertex="1">
+          <mxGeometry height="55" width="280" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="terlacak-sep" parent="terlacak" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#1B5E20;" value="" vertex="1">
+          <mxGeometry height="8" width="280" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="terlacak-method" parent="terlacak" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ catatPosisi(String lokasi) : void&#xa;+ posisiTerakhir() : String" vertex="1">
+          <mxGeometry height="120" width="280" y="93" as="geometry" />
+        </mxCell>
+
+        <!-- Mixin Terasuransi -->
+        <mxCell id="terasuransi" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=14;fillColor=#E65100;fontColor=#FFFFFF;strokeColor=#BF360C;rounded=1;arcSize=8;shadow=1;" value="&lt;&lt;mixin&gt;&gt;&#xa;Terasuransi" vertex="1">
+          <mxGeometry height="230" width="280" x="840" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="terasuransi-attr" parent="terasuransi" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ double persentasePremi = 1.5" vertex="1">
+          <mxGeometry height="45" width="280" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="terasuransi-sep" parent="terasuransi" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#BF360C;" value="" vertex="1">
+          <mxGeometry height="8" width="280" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="terasuransi-method" parent="terasuransi" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ hitungPremi(double nilaiBarang) : double&#xa;+ infoAsuransi(double nilaiBarang) : String" vertex="1">
+          <mxGeometry height="130" width="280" y="83" as="geometry" />
+        </mxCell>
+
+        <!-- Kelas Turunan 1: PengirimanTruk -->
+        <mxCell id="truk" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=13;fillColor=#0288D1;fontColor=#FFFFFF;strokeColor=#01579B;rounded=1;arcSize=8;shadow=1;" value="PengirimanTruk" vertex="1">
+          <mxGeometry height="220" width="240" x="20" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="truk-attr" parent="truk" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontFamily=Consolas;" value="+ final bool ekspres" vertex="1">
+          <mxGeometry height="40" width="240" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="truk-sep" parent="truk" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#01579B;" value="" vertex="1">
+          <mxGeometry height="8" width="240" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="truk-method" parent="truk" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontFamily=Consolas;" value="+ PengirimanTruk(...)&#xa;+ hitungTarif() : double&#xa;+ estimasiHari() : int" vertex="1">
+          <mxGeometry height="130" width="240" y="78" as="geometry" />
+        </mxCell>
+
+        <!-- Kelas Turunan 2: PengirimanKeretaApi -->
+        <mxCell id="kereta" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=13;fillColor=#0288D1;fontColor=#FFFFFF;strokeColor=#01579B;rounded=1;arcSize=8;shadow=1;" value="PengirimanKeretaApi" vertex="1">
+          <mxGeometry height="235" width="250" x="290" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="kereta-attr" parent="kereta" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontFamily=Consolas;" value="+ final String stasiunAsal&#xa;+ final String stasiunTujuan" vertex="1">
+          <mxGeometry height="50" width="250" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kereta-sep" parent="kereta" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#01579B;" value="" vertex="1">
+          <mxGeometry height="8" width="250" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="kereta-method" parent="kereta" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontFamily=Consolas;" value="+ PengirimanKeretaApi(...)&#xa;+ hitungTarif() : double&#xa;+ estimasiHari() : int&#xa;+ ringkasan() : String" vertex="1">
+          <mxGeometry height="135" width="250" y="88" as="geometry" />
+        </mxCell>
+
+        <!-- Kelas Turunan 3: PengirimanKapal -->
+        <mxCell id="kapal" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=13;fillColor=#0288D1;fontColor=#FFFFFF;strokeColor=#01579B;rounded=1;arcSize=8;shadow=1;" value="PengirimanKapal" vertex="1">
+          <mxGeometry height="235" width="250" x="570" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="kapal-attr" parent="kapal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontFamily=Consolas;" value="+ final double volumeM3&#xa;+ final bool petiKemas" vertex="1">
+          <mxGeometry height="50" width="250" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kapal-sep" parent="kapal" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#01579B;" value="" vertex="1">
+          <mxGeometry height="8" width="250" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="kapal-method" parent="kapal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontFamily=Consolas;" value="+ PengirimanKapal(...)&#xa;+ hitungTarif() : double&#xa;+ estimasiHari() : int" vertex="1">
+          <mxGeometry height="135" width="250" y="88" as="geometry" />
+        </mxCell>
+
+        <!-- Kelas Turunan 4: PengirimanUdara -->
+        <mxCell id="udara" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=13;fillColor=#0288D1;fontColor=#FFFFFF;strokeColor=#01579B;rounded=1;arcSize=8;shadow=1;" value="PengirimanUdara" vertex="1">
+          <mxGeometry height="260" width="270" x="850" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="udara-attr" parent="udara" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontFamily=Consolas;" value="+ final String bandara&#xa;+ final double panjangCm&#xa;+ final double lebarCm&#xa;+ final double tinggiCm&#xa;+ get beratVolumetrik : double" vertex="1">
+          <mxGeometry height="85" width="270" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="udara-sep" parent="udara" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#01579B;" value="" vertex="1">
+          <mxGeometry height="8" width="270" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="udara-method" parent="udara" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontFamily=Consolas;" value="+ PengirimanUdara(...)&#xa;+ hitungTarif() : double&#xa;+ estimasiHari() : int&#xa;+ ringkasan() : String" vertex="1">
+          <mxGeometry height="125" width="270" y="123" as="geometry" />
+        </mxCell>
+
+        <!-- Relasi Pewarisan (Inheritance - Solid Arrow with empty triangular head) -->
+        <mxCell id="rel-inh-truk" edge="1" parent="1" source="truk" target="layanan" style="endArrow=block;endFill=0;endSize=12;strokeWidth=2;strokeColor=#1565C0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-inh-kereta" edge="1" parent="1" source="kereta" target="layanan" style="endArrow=block;endFill=0;endSize=12;strokeWidth=2;strokeColor=#1565C0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.4;entryY=1;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-inh-kapal" edge="1" parent="1" source="kapal" target="layanan" style="endArrow=block;endFill=0;endSize=12;strokeWidth=2;strokeColor=#1565C0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.6;entryY=1;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-inh-udara" edge="1" parent="1" source="udara" target="layanan" style="endArrow=block;endFill=0;endSize=12;strokeWidth=2;strokeColor=#1565C0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.8;entryY=1;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Relasi Mixin Terlacak (Dashed arrow to Terlacak) -->
+        <mxCell id="rel-mix-truk-terlacak" edge="1" parent="1" source="truk" target="terlacak" style="endArrow=open;endFill=0;endSize=10;strokeWidth=2;strokeColor=#2E7D32;dashed=1;dashPattern=6 3;exitX=0.3;exitY=0;entryX=0.3;entryY=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-mix-truk-label" connectable="0" parent="rel-mix-truk-terlacak" style="edgeLabel;align=center;verticalAlign=middle;fontSize=10;fontColor=#2E7D32;fontStyle=2;" value="with Terlacak" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="-5" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel-mix-kereta-terlacak" edge="1" parent="1" source="kereta" target="terlacak" style="endArrow=open;endFill=0;endSize=10;strokeWidth=2;strokeColor=#2E7D32;dashed=1;dashPattern=6 3;exitX=0.2;exitY=0;entryX=0.7;entryY=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-mix-kapal-terlacak" edge="1" parent="1" source="kapal" target="terlacak" style="endArrow=open;endFill=0;endSize=10;strokeWidth=2;strokeColor=#2E7D32;dashed=1;dashPattern=6 3;exitX=0.1;exitY=0;entryX=0.9;entryY=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-mix-udara-terlacak" edge="1" parent="1" source="udara" target="terlacak" style="endArrow=open;endFill=0;endSize=10;strokeWidth=2;strokeColor=#2E7D32;dashed=1;dashPattern=6 3;exitX=0.1;exitY=0;entryX=1;entryY=0.8;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Relasi Mixin Terasuransi (Dashed arrow to Terasuransi) -->
+        <mxCell id="rel-mix-kapal-terasuransi" edge="1" parent="1" source="kapal" target="terasuransi" style="endArrow=open;endFill=0;endSize=10;strokeWidth=2;strokeColor=#E65100;dashed=1;dashPattern=6 3;exitX=0.8;exitY=0;entryX=0.2;entryY=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-mix-kapal-label" connectable="0" parent="rel-mix-kapal-terasuransi" style="edgeLabel;align=center;verticalAlign=middle;fontSize=10;fontColor=#E65100;fontStyle=2;" value="with Terasuransi" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="-5" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel-mix-udara-terasuransi" edge="1" parent="1" source="udara" target="terasuransi" style="endArrow=open;endFill=0;endSize=10;strokeWidth=2;strokeColor=#E65100;dashed=1;dashPattern=6 3;exitX=0.7;exitY=0;entryX=0.7;entryY=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-mix-udara-label" connectable="0" parent="rel-mix-udara-terasuransi" style="edgeLabel;align=center;verticalAlign=middle;fontSize=10;fontColor=#E65100;fontStyle=2;" value="with Terasuransi" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="5" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -21,6 +21,7 @@ class Pengiriman {
     required this.tanggalKirim,
     required this.pelanggan,
     String status = 'Draft',
+    // ignore: prefer_initializing_formals
   }) : _status = status;
 
   /// Konstruktor bernama untuk pengiriman yang baru didaftarkan hari ini.

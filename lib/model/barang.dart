@@ -10,6 +10,7 @@ required this.nama,
 required double hargaSatuan,
 this.satuan = 'pcs',
 this.beratKg = 0,
+// ignore: prefer_initializing_formals
 }) : _hargaSatuan = hargaSatuan;
 /// Konstruktor bernama untuk data hasil pemindaian kode barang.
 Barang.dariPemindaian(String baris)

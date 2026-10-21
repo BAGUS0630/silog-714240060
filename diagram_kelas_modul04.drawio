@@ -1,0 +1,93 @@
+<mxfile host="app.diagrams.net" agent="Antigravity">
+  <diagram id="modul04-class-diagram" name="Diagram Kelas Modul 04">
+    <mxGraphModel dx="1235" dy="1635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="barang" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=14;fillColor=#1565C0;fontColor=#FFFFFF;strokeColor=#0D47A1;rounded=1;arcSize=8;shadow=1;" value="Barang" vertex="1">
+          <mxGeometry height="290" width="310" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="barang-attr" parent="barang" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ final String kode&#xa;+ final String nama&#xa;+ final String satuan&#xa;- double _hargaSatuan&#xa;+ double beratKg" vertex="1">
+          <mxGeometry height="100" width="310" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="barang-sep" parent="barang" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#0D47A1;" value="" vertex="1">
+          <mxGeometry height="8" width="310" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="barang-method" parent="barang" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ Barang({required kode, nama, hargaSatuan, ...})&#xa;+ Barang.dariPemindaian(String baris)&#xa;+ get hargaSatuan : double&#xa;+ set hargaSatuan(double nilai)&#xa;+ nilaiTotal(int jumlah) : double&#xa;+ toString() : String" vertex="1">
+          <mxGeometry height="152" width="310" y="138" as="geometry" />
+        </mxCell>
+        <mxCell id="gudang" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=14;fillColor=#1565C0;fontColor=#FFFFFF;strokeColor=#0D47A1;rounded=1;arcSize=8;shadow=1;" value="Gudang" vertex="1">
+          <mxGeometry height="310" width="320" x="810" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gudang-attr" parent="gudang" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ final String kode&#xa;+ final String nama&#xa;+ final String kota&#xa;+ final int kapasitas&#xa;- final Map&lt;String, int&gt; _stok" vertex="1">
+          <mxGeometry height="100" width="320" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gudang-sep" parent="gudang" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#0D47A1;" value="" vertex="1">
+          <mxGeometry height="8" width="320" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gudang-method" parent="gudang" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ Gudang({required kode, nama, kota, ...})&#xa;+ get totalStok : int&#xa;+ get penuh : bool&#xa;+ get stok : Map&lt;String, int&gt;&#xa;+ terimaBarang(Barang, int jumlah) : void&#xa;+ keluarkanBarang(Barang, int jumlah) : void&#xa;+ toString() : String" vertex="1">
+          <mxGeometry height="172" width="320" y="138" as="geometry" />
+        </mxCell>
+        <mxCell id="pengiriman" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=14;fillColor=#1565C0;fontColor=#FFFFFF;strokeColor=#0D47A1;rounded=1;arcSize=8;shadow=1;" value="Pengiriman" vertex="1">
+          <mxGeometry height="370" width="380" x="370" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="pengiriman-attr" parent="pengiriman" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ final String resi&#xa;+ final Gudang asal&#xa;+ final String kotaTujuan&#xa;+ final Barang barang&#xa;+ final int jumlah&#xa;+ final DateTime tanggalKirim&#xa;+ final Pelanggan pelanggan&#xa;- String _status" vertex="1">
+          <mxGeometry height="155" width="380" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pengiriman-sep" parent="pengiriman" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#0D47A1;" value="" vertex="1">
+          <mxGeometry height="8" width="380" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="pengiriman-method" parent="pengiriman" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ Pengiriman({required resi, asal, ...})&#xa;+ Pengiriman.baru({required resi, asal, ...})&#xa;+ get status : String&#xa;+ get nilaiBarang : double&#xa;+ ubahStatus(String statusBaru) : void&#xa;+ toString() : String" vertex="1">
+          <mxGeometry height="177" width="380" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="pelanggan" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fontSize=14;fillColor=#1565C0;fontColor=#FFFFFF;strokeColor=#0D47A1;rounded=1;arcSize=8;shadow=1;" value="Pelanggan" vertex="1">
+          <mxGeometry height="250" width="280" x="830" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="pelanggan-attr" parent="pelanggan" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ final String kode&#xa;+ final String nama&#xa;+ final String telepon&#xa;+ final String alamat" vertex="1">
+          <mxGeometry height="85" width="280" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pelanggan-sep" parent="pelanggan" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;strokeColor=#0D47A1;" value="" vertex="1">
+          <mxGeometry height="8" width="280" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="pelanggan-method" parent="pelanggan" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Consolas;" value="+ Pelanggan({required kode, nama, ...})&#xa;+ alamatRingkas() : String&#xa;+ toString() : String" vertex="1">
+          <mxGeometry height="127" width="280" y="123" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-pengiriman-barang" edge="1" parent="1" source="pengiriman-attr" style="endArrow=open;endFill=0;endSize=12;strokeWidth=2;strokeColor=#424242;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=1;" target="barang">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-pengiriman-barang-label" connectable="0" parent="rel-pengiriman-barang" style="edgeLabel;html=0;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#424242;" value="barang&#xa;1" vertex="1">
+          <mxGeometry relative="1" x="-0.2" y="-10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-pengiriman-gudang" edge="1" parent="1" source="pengiriman-attr" style="endArrow=open;endFill=0;endSize=12;strokeWidth=2;strokeColor=#424242;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=1;" target="gudang">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-pengiriman-gudang-label" connectable="0" parent="rel-pengiriman-gudang" style="edgeLabel;html=0;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#424242;" value="asal&#xa;1" vertex="1">
+          <mxGeometry relative="1" x="-0.2" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-pengiriman-pelanggan" edge="1" parent="1" source="pengiriman-attr" style="endArrow=open;endFill=0;endSize=12;strokeWidth=2;strokeColor=#424242;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" target="pelanggan-attr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-pengiriman-pelanggan-label" connectable="0" parent="rel-pengiriman-pelanggan" style="edgeLabel;html=0;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#424242;" value="pelanggan&#xa;1" vertex="1">
+          <mxGeometry relative="1" x="-0.2" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-gudang-barang" edge="1" parent="1" source="gudang-method" style="endArrow=open;endFill=0;endSize=12;strokeWidth=2;strokeColor=#757575;dashed=1;dashPattern=8 4;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="barang-attr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-gudang-barang-label" connectable="0" parent="rel-gudang-barang" style="edgeLabel;html=0;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#757575;fontStyle=2;" value="&lt;&lt;uses&gt;&gt;" vertex="1">
+          <mxGeometry relative="1" y="-10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1565C0;" value="Diagram Kelas — Modul 04&#xa;Pemrograman Berorientasi Objek Dasar&#xa;Sistem Informasi Logistik (SiLog)&#xa;714240060 Muhammad Bagus" vertex="1">
+          <mxGeometry height="60" width="390" x="385" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
