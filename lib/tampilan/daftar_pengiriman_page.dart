@@ -5,6 +5,8 @@ import '../model/pengiriman.dart';
 import '../widget/kartu_pengiriman.dart';
 import 'detail_pengiriman_page.dart';
 import 'form_pengiriman_page.dart';
+import 'stok_page.dart'; // <-- Pastikan import StokPage sudah ada
+import '../main.dart';
 
 class DaftarPengirimanPage extends StatefulWidget {
   const DaftarPengirimanPage({super.key});
@@ -47,7 +49,36 @@ class _DaftarPengirimanPageState extends State<DaftarPengirimanPage> {
   Widget build(BuildContext context) {
     const opsi = ['Semua', 'Menunggu Pickup', 'Dalam Perjalanan', 'Diterima'];
     return Scaffold(
-      appBar: AppBar(title: const Text('Daftar Pengiriman')),
+      appBar: AppBar(
+        title: const Text('Daftar Pengiriman'),
+        actions: [
+          IconButton(
+            icon: Icon(
+              SiLogApp.of(context)?.isDarkMode == true
+                  ? Icons.light_mode
+                  : Icons.dark_mode,
+            ),
+            tooltip: 'Ubah Tema',
+            onPressed: () {
+              final state = SiLogApp.of(context);
+              if (state != null) {
+                state.ubahModeGelap(!state.isDarkMode);
+              }
+            },
+          ),
+          // <-- Tombol menuju StokPage ditambahkan di sini
+          IconButton(
+            icon: const Icon(Icons.inventory_2_outlined),
+            tooltip: 'Stok Gudang',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const StokPage()),
+              );
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           SingleChildScrollView(
@@ -66,8 +97,11 @@ class _DaftarPengirimanPageState extends State<DaftarPengirimanPage> {
               }).toList(),
             ),
           ),
-          Text(
-            'Menampilkan ${_hasilSaring.length} dari ${_daftar.length} data',
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+            child: Text(
+              'Menampilkan ${_hasilSaring.length} dari ${_daftar.length} data',
+            ),
           ),
           Expanded(
             child: _hasilSaring.isEmpty
