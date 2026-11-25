@@ -14,6 +14,8 @@ class StokPage extends StatefulWidget {
 }
 
 class _StokPageState extends State<StokPage> {
+  static const _daftarGudang = ['GD-BDG', 'GD-JKT', 'GD-SBY'];
+
   final _repo = StokRepository.instance;
   final _pref = Preferensi();
   final _searchC = TextEditingController();
@@ -51,15 +53,34 @@ class _StokPageState extends State<StokPage> {
     });
   }
 
+  Future<void> _pilihGudang(String kodeGudang) async {
+    await _pref.simpanGudangTerakhir(kodeGudang);
+    await _muat();
+  }
+
+  Future<void> _tambah5Contoh() async {
+    for (int i = 0; i < 5; i++) {
+      final waktu = DateTime.now().add(Duration(milliseconds: i * 50));
+      await _repo.simpan(
+        Stok(
+          kodeBarang: 'B-${waktu.microsecondsSinceEpoch}',
+          namaBarang: 'Barang Uji ${waktu.microsecondsSinceEpoch}',
+          kodeGudang: _gudang,
+          jumlah: 25,
+          diperbaruiPada: waktu,
+        ),
+      );
+    }
+    await _muat();
+  }
+
   Future<void> _bukaFormulirTambah() async {
-    final hasil = await Navigator.push<bool>(
+    final gudangTerpilih = await Navigator.push<String>(
       context,
-      MaterialPageRoute(
-        builder: (_) => FormStokPage(kodeGudang: _gudang),
-      ),
+      MaterialPageRoute(builder: (_) => FormStokPage(kodeGudang: _gudang)),
     );
-    if (hasil == true) {
-      await _muat();
+    if (gudangTerpilih != null) {
+      await _pilihGudang(gudangTerpilih);
     }
   }
 
@@ -103,6 +124,25 @@ class _StokPageState extends State<StokPage> {
       appBar: AppBar(
         title: Text('Stok Gudang $_gudang'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.playlist_add),
+            tooltip: 'Tambah 5 Data Contoh',
+            onPressed: _tambah5Contoh,
+          ),
+          PopupMenuButton<String>(
+            tooltip: 'Pilih gudang',
+            initialValue: _gudang,
+            onSelected: _pilihGudang,
+            itemBuilder: (context) => _daftarGudang
+                .map(
+                  (kode) => PopupMenuItem(
+                    value: kode,
+                    child: Text(kode == _gudang ? '$kode (dipilih)' : kode),
+                  ),
+                )
+                .toList(),
+            icon: const Icon(Icons.warehouse_outlined),
+          ),
           IconButton(
             icon: Icon(
               SiLogApp.of(context)?.isDarkMode == true
@@ -160,10 +200,24 @@ class _StokPageState extends State<StokPage> {
                 ? const Center(child: CircularProgressIndicator())
                 : _daftar.isEmpty
                     ? Center(
-                        child: Text(
-                          _searchC.text.isNotEmpty
-                              ? 'Tidak ditemukan barang dengan nama "${_searchC.text}"'
-                              : 'Belum ada data stok',
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              _searchC.text.isNotEmpty
+                                  ? 'Tidak ditemukan barang dengan nama "${_searchC.text}"'
+                                  : 'Belum ada data stok di gudang $_gudang',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                            if (_searchC.text.isEmpty) ...[
+                              const SizedBox(height: 16),
+                              FilledButton.tonalIcon(
+                                onPressed: _tambah5Contoh,
+                                icon: const Icon(Icons.playlist_add),
+                                label: const Text('Isi 5 Data Contoh Otomatis'),
+                              ),
+                            ],
+                          ],
                         ),
                       )
                     : ListView.builder(

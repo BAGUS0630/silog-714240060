@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../data/data_contoh.dart';
+import '../data/order_repository.dart';
 import '../model/pengiriman.dart';
 import '../widget/kartu_pengiriman.dart';
 import 'detail_pengiriman_page.dart';
 import 'form_pengiriman_page.dart';
+import 'order_page.dart';
 import 'stok_page.dart'; // <-- Pastikan import StokPage sudah ada
 import '../main.dart';
 
 class DaftarPengirimanPage extends StatefulWidget {
-  const DaftarPengirimanPage({super.key});
+  final OrderRepository? orderRepository;
+
+  const DaftarPengirimanPage({super.key, this.orderRepository});
 
   @override
   State<DaftarPengirimanPage> createState() => _DaftarPengirimanPageState();
@@ -74,6 +78,18 @@ class _DaftarPengirimanPageState extends State<DaftarPengirimanPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const StokPage()),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.cloud_outlined),
+            tooltip: 'Order dari Layanan Web',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => OrderPage(repository: widget.orderRepository),
+                ),
               );
             },
           ),

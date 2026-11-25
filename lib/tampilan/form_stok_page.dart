@@ -117,7 +117,7 @@ class _FormStokPageState extends State<FormStokPage> {
           backgroundColor: Colors.green,
         ),
       );
-      Navigator.pop(context, true);
+      Navigator.pop(context, _kodeGudangTerpilih);
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
